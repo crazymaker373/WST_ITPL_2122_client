@@ -38,3 +38,4 @@ def postUrl(request, command, basicConf, result):
     response = urllib.request.urlopen(basicConf.serverUrl, data)
 
     print(response.info())
+
