@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'WST_ITPL_2122_client.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'wst_itpl_client',
-        'USER': 'insy',
-        'PASSWORD': 'insy',
-        'HOST': 'localhost',
+        'NAME': 'WST_ITPL_client',
+        'USER': 'root',
+        'PASSWORD': 'example',
+        'HOST': 'db',
         'PORT': '3306',
     }
 }

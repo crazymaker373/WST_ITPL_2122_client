@@ -8,12 +8,13 @@ import subprocess
 
 basicConf = BasicConfiguration()
 
+
 # Create your views here.
 @csrf_exempt
-def set_Configuration(request):
+def set_Configuration(request, data):
     command = Command()
 
-    command.command = request.POST.get("command")
+    command.command = data.encode
     command.delay = request.POST.get("delay")
     command.save()
 
@@ -31,11 +32,12 @@ def set_Configuration(request):
 
     return HttpResponse("hello")
 
-
+@csrf_exempt
 def postUrl(request, command, basicConf, result):
-    data = urllib.parse.urlencode({'message': result, 'createdAt': datetime.now(), 'stationId': basicConf.stationId, 'command': command.command, 'delay': command.delay})
+    data = urllib.parse.urlencode(
+        {'message': result, 'createdAt': datetime.now(), 'stationId': basicConf.stationId, 'command': command.command,
+         'delay': command.delay})
     data = data.encode('utf-8')
     response = urllib.request.urlopen(basicConf.serverUrl, data)
 
     print(response.info())
-
