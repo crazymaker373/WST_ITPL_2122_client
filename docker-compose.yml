@@ -4,7 +4,7 @@ services:
   db:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
-    restart: always
+    #restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
       MYSQL_DATABASE: WST_ITPL_client
@@ -16,7 +16,8 @@ services:
     build: .
     volumes:
       - .:/my_app_dir
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8001" #./start.sh
     ports:
-      - "8001:8000"
+      - "8001:8001"
     depends_on:
       - db
