@@ -18,6 +18,6 @@ from django.urls import path
 from Web.views import set_Configuration
 
 urlpatterns = [
-    path('test', set_Configuration),
+    path('getconfiguration', set_Configuration),
     path('', admin.site.urls),
 ]

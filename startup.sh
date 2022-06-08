@@ -13,4 +13,10 @@ echo "from django.contrib.auth.models import User; User.objects.create_superuser
 
 winpty python.exe manage.py runserver 8001
 
+apt update
+apt install -y dnsutils
+apt-get install curl
+curl -s https://install.speedtest.net/app/cli/install.deb.sh | bash
+apt install -y speedtest
+
 echo "import urllib.request; urllib.request.urlopen('http://localhost:8000/setstation', urllib.parse.urlencode({'url': '192.168.192.213'}).encode('utf-8'))" | python manage.py shell
