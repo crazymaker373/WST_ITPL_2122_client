@@ -19,4 +19,4 @@ apt-get install curl
 curl -s https://install.speedtest.net/app/cli/install.deb.sh | bash
 apt install -y speedtest
 
-echo "import urllib.request; urllib.request.urlopen('http://10.232.35.232:8000/setstation', urllib.parse.urlencode({'url': '10.232.35.233:8001'}).encode('utf-8'))" | python manage.py shell
+echo "import urllib.request; urllib.request.urlopen('http://192.168.3.72:8000/setstation', urllib.parse.urlencode({'url': '192.168.5.228:8001'}).encode('utf-8'))" | python manage.py shell
