@@ -3,6 +3,7 @@ version: '3.1'
 services:
   db:
     image: mysql
+    platform: linux/amd64
     command: --default-authentication-plugin=mysql_native_password
     #restart: always
     environment:
@@ -14,6 +15,7 @@ services:
       - ./data:/var/lib/mysql
   web:
     build: .
+    platform: linux/amd64
     volumes:
       - .:/my_app_dir
     command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8001" #./start.sh
